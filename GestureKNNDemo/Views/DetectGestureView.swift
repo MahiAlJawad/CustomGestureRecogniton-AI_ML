@@ -3,6 +3,7 @@ import SwiftUI
 struct DetectGestureView: View {
     @ObservedObject var store: GestureStore
     @StateObject private var detector = ContinuousGestureDetector()
+    @AppStorage(GestureLaunchPreferences.shouldStartListeningKey) private var shouldStartListening = false
 
     var body: some View {
         NavigationStack {
@@ -108,6 +109,12 @@ struct DetectGestureView: View {
             }
             .animation(.spring(response: 0.25, dampingFraction: 0.85), value: detector.toastMessage)
             .navigationTitle("Detect Gesture")
+            .onAppear {
+                handlePendingListeningRequest()
+            }
+            .onChange(of: shouldStartListening) {
+                handlePendingListeningRequest()
+            }
             .onDisappear {
                 detector.stopListening()
             }
@@ -118,6 +125,16 @@ struct DetectGestureView: View {
         if detector.isListening {
             detector.stopListening()
         } else {
+            detector.startListening(examples: store.examples)
+        }
+    }
+
+    private func handlePendingListeningRequest() {
+        guard shouldStartListening else { return }
+
+        shouldStartListening = false
+
+        if !detector.isListening {
             detector.startListening(examples: store.examples)
         }
     }

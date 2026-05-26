@@ -5,7 +5,7 @@ import SwiftUI
 final class GestureStore: ObservableObject {
     @Published private(set) var examples: [GestureExample] = []
 
-    private let storageKey = "gesture_examples_knn_v1"
+    static let storageKey = "gesture_examples_knn_v1"
 
     init() {
         load()
@@ -63,20 +63,31 @@ final class GestureStore: ObservableObject {
     private func save() {
         do {
             let data = try JSONEncoder().encode(examples)
-            UserDefaults.standard.set(data, forKey: storageKey)
+            UserDefaults.standard.set(data, forKey: Self.storageKey)
         } catch {
             print("Failed to save gesture examples:", error)
         }
     }
 
     private func load() {
-        guard let data = UserDefaults.standard.data(forKey: storageKey) else { return }
+        guard let data = UserDefaults.standard.data(forKey: Self.storageKey) else { return }
 
         do {
             examples = try JSONDecoder().decode([GestureExample].self, from: data)
         } catch {
             print("Failed to load gesture examples:", error)
             examples = []
+        }
+    }
+
+    static func loadSavedExamples() -> [GestureExample] {
+        guard let data = UserDefaults.standard.data(forKey: storageKey) else { return [] }
+
+        do {
+            return try JSONDecoder().decode([GestureExample].self, from: data)
+        } catch {
+            print("Failed to load gesture examples:", error)
+            return []
         }
     }
 }
