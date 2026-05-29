@@ -35,7 +35,6 @@ struct DetectGestureView: View {
                                 .frame(maxWidth: .infinity)
                             }
                             .buttonStyle(.borderedProminent)
-                            .disabled(!detector.isListening && store.examples.isEmpty)
                         }
                     }
 
@@ -67,7 +66,7 @@ struct DetectGestureView: View {
                                 }
                             }
                         } else {
-                            Text(store.examples.isEmpty ? "Register gestures first." : "No gesture detected yet.")
+                            Text("No gesture detected yet.")
                                 .foregroundStyle(.secondary)
                         }
                     }

@@ -3,6 +3,7 @@ import Foundation
 enum GestureAppTab: String {
     case register
     case detect
+    case trainData
     case saved
 }
 

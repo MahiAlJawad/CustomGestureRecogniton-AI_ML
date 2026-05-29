@@ -23,6 +23,12 @@ struct GestureRootView: View {
                     Label("Saved", systemImage: "tray.full")
                 }
                 .tag(GestureAppTab.saved.rawValue)
+
+            TrainDataView()
+                .tabItem {
+                    Label("Train Data", systemImage: "externaldrive.badge.plus")
+                }
+                .tag(GestureAppTab.trainData.rawValue)
         }
         .task {
             await GestureNotificationManager.requestAuthorizationIfNeeded()

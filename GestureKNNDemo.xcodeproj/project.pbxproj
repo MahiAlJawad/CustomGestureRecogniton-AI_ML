@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AE366392FC9D948005DCE8E /* gesture_rotate_model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 5AE366372FC9D948005DCE8E /* gesture_rotate_model.tflite */; };
+		5AE3663A2FC9D948005DCE8E /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5AE366382FC9D948005DCE8E /* labels.txt */; };
 		A00000000000000000000001 /* GestureKNNDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000002 /* GestureKNNDemoApp.swift */; };
-		A00000000000000000000019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000020 /* LaunchScreen.storyboard */; };
+		A00000000000000000000019 /* Base.lproj/LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000020 /* Base.lproj/LaunchScreen.storyboard */; };
 		B00000000000000000000001 /* GestureRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000002 /* GestureRootView.swift */; };
-		B00000000000000000000039 /* GestureLaunchPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000040 /* GestureLaunchPreferences.swift */; };
-		B00000000000000000000041 /* StartListeningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000042 /* StartListeningIntent.swift */; };
-		B00000000000000000000043 /* BackgroundGestureListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000044 /* BackgroundGestureListener.swift */; };
-		B00000000000000000000045 /* GestureNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000046 /* GestureNotificationManager.swift */; };
 		B00000000000000000000003 /* MotionSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000004 /* MotionSample.swift */; };
 		B00000000000000000000005 /* GestureExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000006 /* GestureExample.swift */; };
 		B00000000000000000000007 /* GestureCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000008 /* GestureCount.swift */; };
@@ -26,18 +24,25 @@
 		B00000000000000000000021 /* DetectGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000022 /* DetectGestureView.swift */; };
 		B00000000000000000000023 /* GestureLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000024 /* GestureLibraryView.swift */; };
 		B00000000000000000000025 /* GestureDemoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000026 /* GestureDemoError.swift */; };
+		B00000000000000000000039 /* GestureLaunchPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000040 /* GestureLaunchPreferences.swift */; };
+		B00000000000000000000041 /* StartListeningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000042 /* StartListeningIntent.swift */; };
+		B00000000000000000000043 /* BackgroundGestureListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000044 /* BackgroundGestureListener.swift */; };
+		B00000000000000000000045 /* GestureNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000046 /* GestureNotificationManager.swift */; };
+		B00000000000000000000047 /* RotateNoiseTFLiteClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000048 /* RotateNoiseTFLiteClassifier.swift */; };
+		B00000000000000000000049 /* TensorFlowLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B00000000000000000000050 /* TensorFlowLiteSwift */; };
+		B00000000000000000000052 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00000000000000000000053 /* CoreML.framework */; };
+		C00000000000000000000001 /* MotionTrainingRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000002 /* MotionTrainingRecorder.swift */; };
+		C00000000000000000000003 /* TrainDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00000000000000000000004 /* TrainDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AE366372FC9D948005DCE8E /* gesture_rotate_model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gesture_rotate_model.tflite; sourceTree = "<group>"; };
+		5AE366382FC9D948005DCE8E /* labels.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
 		A00000000000000000000002 /* GestureKNNDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureKNNDemoApp.swift; sourceTree = "<group>"; };
 		A00000000000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00000000000000000000004 /* GestureKNNDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestureKNNDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00000000000000000000020 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A00000000000000000000020 /* Base.lproj/LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B00000000000000000000002 /* GestureRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRootView.swift; sourceTree = "<group>"; };
-		B00000000000000000000040 /* GestureLaunchPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureLaunchPreferences.swift; sourceTree = "<group>"; };
-		B00000000000000000000042 /* StartListeningIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartListeningIntent.swift; sourceTree = "<group>"; };
-		B00000000000000000000044 /* BackgroundGestureListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGestureListener.swift; sourceTree = "<group>"; };
-		B00000000000000000000046 /* GestureNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureNotificationManager.swift; sourceTree = "<group>"; };
 		B00000000000000000000004 /* MotionSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionSample.swift; sourceTree = "<group>"; };
 		B00000000000000000000006 /* GestureExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureExample.swift; sourceTree = "<group>"; };
 		B00000000000000000000008 /* GestureCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureCount.swift; sourceTree = "<group>"; };
@@ -51,6 +56,14 @@
 		B00000000000000000000024 /* GestureLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureLibraryView.swift; sourceTree = "<group>"; };
 		B00000000000000000000026 /* GestureDemoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureDemoError.swift; sourceTree = "<group>"; };
 		B00000000000000000000038 /* Architecture.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Architecture.md; sourceTree = "<group>"; };
+		B00000000000000000000040 /* GestureLaunchPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureLaunchPreferences.swift; sourceTree = "<group>"; };
+		B00000000000000000000042 /* StartListeningIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartListeningIntent.swift; sourceTree = "<group>"; };
+		B00000000000000000000044 /* BackgroundGestureListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGestureListener.swift; sourceTree = "<group>"; };
+		B00000000000000000000046 /* GestureNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureNotificationManager.swift; sourceTree = "<group>"; };
+		B00000000000000000000048 /* RotateNoiseTFLiteClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateNoiseTFLiteClassifier.swift; sourceTree = "<group>"; };
+		B00000000000000000000053 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		C00000000000000000000002 /* MotionTrainingRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionTrainingRecorder.swift; sourceTree = "<group>"; };
+		C00000000000000000000004 /* TrainDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +71,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00000000000000000000049 /* TensorFlowLiteSwift in Frameworks */,
+				B00000000000000000000052 /* CoreML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AE366362FC9D8F0005DCE8E /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				5AE366372FC9D948005DCE8E /* gesture_rotate_model.tflite */,
+				5AE366382FC9D948005DCE8E /* labels.txt */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
 		A00000000000000000000006 = {
 			isa = PBXGroup;
 			children = (
 				A00000000000000000000007 /* GestureKNNDemo */,
 				B00000000000000000000037 /* Documentation */,
+				B00000000000000000000053 /* CoreML.framework */,
 				A00000000000000000000008 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +101,7 @@
 		A00000000000000000000007 /* GestureKNNDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5AE366362FC9D8F0005DCE8E /* MLModels */,
 				B00000000000000000000027 /* App */,
 				B00000000000000000000028 /* Models */,
 				B00000000000000000000029 /* Storage */,
@@ -84,9 +110,17 @@
 				B00000000000000000000032 /* Views */,
 				B00000000000000000000033 /* Support */,
 				A00000000000000000000003 /* Info.plist */,
-				A00000000000000000000020 /* LaunchScreen.storyboard */,
+				A00000000000000000000020 /* Base.lproj/LaunchScreen.storyboard */,
 			);
 			path = GestureKNNDemo;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000008 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000004 /* GestureKNNDemo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B00000000000000000000027 /* App */ = {
@@ -122,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				B00000000000000000000012 /* MotionRecorder.swift */,
+				C00000000000000000000002 /* MotionTrainingRecorder.swift */,
 				B00000000000000000000014 /* ContinuousGestureDetector.swift */,
 				B00000000000000000000044 /* BackgroundGestureListener.swift */,
 			);
@@ -133,6 +168,7 @@
 			children = (
 				B00000000000000000000016 /* GestureFeatureExtractor.swift */,
 				B00000000000000000000018 /* KNNGestureClassifier.swift */,
+				B00000000000000000000048 /* RotateNoiseTFLiteClassifier.swift */,
 			);
 			path = ML;
 			sourceTree = "<group>";
@@ -142,6 +178,7 @@
 			children = (
 				B00000000000000000000020 /* RecordGestureView.swift */,
 				B00000000000000000000022 /* DetectGestureView.swift */,
+				C00000000000000000000004 /* TrainDataView.swift */,
 				B00000000000000000000024 /* GestureLibraryView.swift */,
 			);
 			path = Views;
@@ -164,14 +201,6 @@
 			path = Documentation;
 			sourceTree = "<group>";
 		};
-		A00000000000000000000008 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000004 /* GestureKNNDemo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +218,7 @@
 			);
 			name = GestureKNNDemo;
 			packageProductDependencies = (
+				B00000000000000000000050 /* TensorFlowLiteSwift */,
 			);
 			productName = GestureKNNDemo;
 			productReference = A00000000000000000000004 /* GestureKNNDemo.app */;
@@ -219,6 +249,7 @@
 			);
 			mainGroup = A00000000000000000000006;
 			packageReferences = (
+				B00000000000000000000051 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */,
 			);
 			productRefGroup = A00000000000000000000008 /* Products */;
 			projectDirPath = "";
@@ -234,7 +265,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00000000000000000000019 /* LaunchScreen.storyboard in Resources */,
+				A00000000000000000000019 /* Base.lproj/LaunchScreen.storyboard in Resources */,
+				5AE366392FC9D948005DCE8E /* gesture_rotate_model.tflite in Resources */,
+				5AE3663A2FC9D948005DCE8E /* labels.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,11 +291,14 @@
 				B00000000000000000000013 /* ContinuousGestureDetector.swift in Sources */,
 				B00000000000000000000015 /* GestureFeatureExtractor.swift in Sources */,
 				B00000000000000000000017 /* KNNGestureClassifier.swift in Sources */,
+				B00000000000000000000047 /* RotateNoiseTFLiteClassifier.swift in Sources */,
 				B00000000000000000000019 /* RecordGestureView.swift in Sources */,
 				B00000000000000000000021 /* DetectGestureView.swift in Sources */,
 				B00000000000000000000023 /* GestureLibraryView.swift in Sources */,
 				B00000000000000000000025 /* GestureDemoError.swift in Sources */,
 				B00000000000000000000045 /* GestureNotificationManager.swift in Sources */,
+				C00000000000000000000001 /* MotionTrainingRecorder.swift in Sources */,
+				C00000000000000000000003 /* TrainDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +490,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B00000000000000000000051 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kewlbear/TensorFlowLiteSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B00000000000000000000050 /* TensorFlowLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B00000000000000000000051 /* XCRemoteSwiftPackageReference "TensorFlowLiteSwift" */;
+			productName = TensorFlowLiteSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A00000000000000000000013 /* Project object */;
 }

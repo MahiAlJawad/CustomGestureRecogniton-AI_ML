@@ -1,0 +1,15 @@
+.DS_Store
+
+# Python local environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Xcode user state
+*.xcuserstate
+xcuserdata/

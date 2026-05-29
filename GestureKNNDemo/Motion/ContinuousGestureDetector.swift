@@ -9,7 +9,7 @@ final class ContinuousGestureDetector: ObservableObject {
     @Published private(set) var activeSegmentDuration: TimeInterval = 0
     @Published private(set) var latestPrediction: KNNGestureClassifier.Prediction?
     @Published private(set) var toastMessage: String?
-    @Published private(set) var statusMessage = "Listen continuously and detect saved gestures."
+    @Published private(set) var statusMessage = "Listen continuously and detect rotate or saved gestures."
     @Published var errorMessage: String?
 
     private let motionManager = CMMotionManager()
@@ -17,6 +17,7 @@ final class ContinuousGestureDetector: ObservableObject {
     private var examples: [GestureExample] = []
     private var rollingBuffer: [MotionSample] = []
     private var candidateSamples: [MotionSample] = []
+    private var rotateNoiseClassifier: RotateNoiseTFLiteClassifier?
     private var baseTimestamp: TimeInterval?
     private var quietStartTime: TimeInterval?
     private var cooldownUntil: TimeInterval = 0
@@ -39,11 +40,6 @@ final class ContinuousGestureDetector: ObservableObject {
             return
         }
 
-        guard !examples.isEmpty else {
-            statusMessage = "Register gestures first."
-            return
-        }
-
         self.examples = examples
         rollingBuffer.removeAll()
         candidateSamples.removeAll()
@@ -59,6 +55,15 @@ final class ContinuousGestureDetector: ObservableObject {
         errorMessage = nil
         statusMessage = "Listening..."
         isListening = true
+
+        do {
+            rotateNoiseClassifier = try RotateNoiseTFLiteClassifier()
+        } catch {
+            errorMessage = error.localizedDescription
+            statusMessage = "Rotate/noise model could not be loaded."
+            isListening = false
+            return
+        }
 
         motionManager.deviceMotionUpdateInterval = updateInterval
         motionManager.startDeviceMotionUpdates(to: .main) { [weak self] motion, error in
@@ -82,6 +87,7 @@ final class ContinuousGestureDetector: ObservableObject {
         isListening = false
         rollingBuffer.removeAll()
         candidateSamples.removeAll()
+        rotateNoiseClassifier = nil
         toastTask?.cancel()
         toastTask = nil
         toastMessage = nil
@@ -161,6 +167,36 @@ final class ContinuousGestureDetector: ObservableObject {
         let duration = gestureDuration(segment)
         guard duration >= minGestureDuration else {
             statusMessage = "Movement was too short."
+            return
+        }
+
+        do {
+            if let rotateNoisePrediction = try rotateNoiseClassifier?.predict(samples: segment) {
+                if rotateNoisePrediction.isRotate {
+                    let prediction = KNNGestureClassifier.Prediction(
+                        label: rotateNoisePrediction.label,
+                        confidence: Double(rotateNoisePrediction.rotateProbability),
+                        averageDistance: 0,
+                        nearestNeighbors: []
+                    )
+
+                    latestPrediction = prediction
+                    cooldownUntil = (segment.last?.timestamp ?? 0) + cooldownDuration
+                    statusMessage = "Detected rotate."
+                    showToast("Detected rotate")
+                    return
+                }
+
+                guard !examples.isEmpty else {
+                    statusMessage = "Model saw noise. Register saved gestures for fallback matching."
+                    return
+                }
+
+                statusMessage = "Model saw noise; checking saved gestures..."
+            }
+        } catch {
+            errorMessage = error.localizedDescription
+            statusMessage = "Rotate/noise model failed."
             return
         }
 
